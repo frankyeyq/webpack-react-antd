@@ -1,7 +1,7 @@
 import React from 'react'
 import { getTopics } from '../api/api'
 import { Link } from 'react-router-dom'
-
+import getReplyTime from '../util/util'
 const baseUrl = 'https://cnodejs.org'
 
 class All extends React.Component {
@@ -31,6 +31,7 @@ class All extends React.Component {
                 <span className="reply-visit"><span className="reply-num" title="回复数">{item.reply_count}</span>/<span className="visit-num" title="访问数">{item.visit_count}</span></span>
                 <span className={'list-tab '+(item.top?'tab-top':item.good?'tab-good':'tab-'+item.tab)}>{item.top?'置顶':item.good?'精华':tabObj[item.tab]}</span>
                 <Link to={'/topic/'+item.id}>{item.title}</Link>
+                <span className="last-reply">{getReplyTime(item.last_reply_at)}</span>
             </li>
         )
         return (
