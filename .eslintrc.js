@@ -23,7 +23,7 @@ module.exports = {
       "node":true
     },
     // 使用第三方airbnb开发配置合集
-    "extends": "airbnb",
+    // "extends": "airbnb",
     // eslint-config-airbnb包括了以下3个插件
     "plugins": [
       "react",
@@ -42,6 +42,11 @@ module.exports = {
       "no-unused-vars": 0,
       "semi": ["error", "never"],
       "no-console": 0,
-      "class-methods-use-this": 0
+      "class-methods-use-this": 0,
+      "import/prefer-default-export": 0,
+      "react/no-unused-state": 0,
+      "array-callback-return": 0,
+      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+      "no-unused-expressions": 0
     }
   };

@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
@@ -6,7 +6,8 @@ module.exports = {
 entry: './src/index.js',
 output: {
     filename: 'boundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, './dist'),
+    publicPath: path.resolve(__dirname, './dist')
 },
 devtool: 'inline-source-map',
 devServer: {
@@ -26,18 +27,28 @@ module: {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['env', 'stage-0', 'react'],
-                plugins: []
-            }
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'stage-0', 'react'],
+                    plugins: []
+                }
             }
         },
         {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
+        },
+        {
+            test: /\.scss$/,
+            use: [{
+                loader: "style-loader" // 将 JS 字符串生成为 style 节点
+            }, {
+                loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+            }, {
+                loader: "sass-loader" // 将 Sass 编译成 CSS
+            }]
         }
-    ],
+    ]
 },
 plugins: [
     new HtmlWebpackPlugin({
