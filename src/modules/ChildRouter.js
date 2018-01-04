@@ -16,12 +16,7 @@ import history from 'history/createBrowserHistory'
 class BasicExample extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
-        console.log(this.props)
     }
-
     render() {
         return (
             <Router>
@@ -40,7 +35,6 @@ class BasicExample extends React.Component {
                     <Route path="/ask" component={Ask} />
                     <Route path="/job" component={Job} />
                     <Route path="/dev" component={Dev} />
-                    <Route path="/topic/:id" component={TopicDetail} />
                 </div>
             </Router>
         )
