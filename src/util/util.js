@@ -18,4 +18,6 @@ function getReplyTime(date) {
     return result
 }
 
-export default getReplyTime
+export {
+    getReplyTime
+} 
