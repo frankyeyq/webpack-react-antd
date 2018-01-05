@@ -34,12 +34,6 @@ class BasicExample extends React.Component {
                         <li><Link to="/job">招聘</Link></li>
                         <li><Link to="/dev">客户端测试</Link></li>
                     </ul>
-                    <Route exact path="/" component={All} />
-                    <Route path="/good" component={Good} />
-                    <Route path="/share" component={Share} />
-                    <Route path="/ask" component={Ask} />
-                    <Route path="/job" component={Job} />
-                    <Route path="/dev" component={Dev} />
                     <Route path="/topic/:id" component={TopicDetail} />
                 </div>
             </Router>

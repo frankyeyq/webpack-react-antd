@@ -2,7 +2,6 @@ import React from 'react'
 import { getTopics } from '../api/api'
 import { Link } from 'react-router-dom'
 import getReplyTime from '../util/util'
-const baseUrl = 'https://cnodejs.org'
 
 class All extends React.Component {
     constructor(props) {
@@ -35,7 +34,17 @@ class All extends React.Component {
             </li>
         )
         return (
-            <ul className="list-container">{lis}</ul>
+            <div className="main">
+                <ul className="top-nav">
+                    <li><Link to="/">全部</Link></li>
+                    <li><Link to="/good">精华</Link></li>
+                    <li><Link to="/share">分享</Link></li>
+                    <li><Link to="/ask">问答</Link></li>
+                    <li><Link to="/job">招聘</Link></li>
+                    <li><Link to="/dev">客户端测试</Link></li>
+                </ul>
+                <ul className="list-container">{lis}</ul>
+            </div>
         )
     }
 }
