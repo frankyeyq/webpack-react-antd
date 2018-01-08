@@ -20,9 +20,21 @@ class TopicDetail extends React.Component {
             console.log(res)
         })
     }
+    createMarkup() {
+        console.log(this)
+        return {__html: this.state.data.content}
+    }
     render() {
+        
         return (
-            <h1>topic detail</h1>
+            <div className="topic-detail">
+                <div className="header">
+                    <p className="title">{this.state.data.title}</p>
+                </div>
+                <div className="content">
+                    <div dangerouslySetInnerHTML={this.createMarkup()} />
+                </div>
+            </div>
         )
     }
 }
