@@ -25,7 +25,11 @@ class TopicDetail extends React.Component {
         return {__html: this.state.data.content}
     }
     render() {
-        
+        let replyLis = this.state.data.replies.map(item => {
+            <li className="reply-li" key={item.id}>
+                <img src={item.author.avatar_url} />
+            </li>
+        })
         return (
             <div className="topic-detail">
                 <div className="header">
@@ -33,6 +37,12 @@ class TopicDetail extends React.Component {
                 </div>
                 <div className="content">
                     <div dangerouslySetInnerHTML={this.createMarkup()} />
+                </div>
+                <div className="replies">
+                    <p className="reply-num"></p>
+                    <ul className="reply-ul">
+                        {replyLis}
+                    </ul>
                 </div>
             </div>
         )
